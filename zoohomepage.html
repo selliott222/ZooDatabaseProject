@@ -5,73 +5,8 @@
 	
 	<meta charset="UTF-8">
 	
+	<link rel="stylesheet" href="styles.css">
 	<style>
-
-	* {
-		font-family: Helvetica;
-		margin: 0px;
-		padding: 0px;
-		color: #303030;
-	}
-	
-	body {
-		background-color: #f7f7f7;
-	}
-	
-	.zoo-header {
-		font-size: 24px;
-		font-weight: bold;
-		background-color: #6ac15d;
-		margin: 0px;
-		padding: 0px;
-		height: 100px;
-	}
-	
-	.group-header {
-		margin: 0px;
-		padding: 0px;
-		background-color: #efefef;
-	}
-	
-	.content-div {
-		margin: 0px;
-		padding: 20px;
-		height: 500px;
-	}
-
-	ul {
-		 list-style-type: none;
-		 margin-bottom: 20px;
-	}
-	
-	.relations-list li {
-		 border: 2px solid black;
-		 padding: 2px;
-		 margin: 2px;
-		 width: 200px;
-		 cursor: pointer;
-		 background-color: #f2f2f2;
-	}
-	
-	.query-list li {
-		 border: 2px solid black;
-		 padding: 2px;
-		 margin: 2px;
-		 width: 200px;
-		 cursor: pointer;
-	}
-	
-	input {
-		width:60px ;
-		height: 30px;
-	}
-	
-	.ad-hoc {
-		width:500px ;
-		height: 30px;
-	}
-	
-	
 	</style>
 	
 </head>
@@ -80,11 +15,11 @@
 
 <header>
 	<div class="zoo-header">
-		<h1 style="color:white; padding:20px;">Zoo Database</h1>
+		<h1>Zoo Database</h1>
 	</div>
 	
 	<div class="group-header">
-		<h3 style="padding:20px 20px 20px 20px;" >
+		<h3>
 			Team Members: <br>
 			Michael Thiagasingh: michael.christler@gmail.com <br>
 			Shane Elliott: selliott222@live.com <br>
@@ -103,41 +38,53 @@
 <div class="content-div">
 
 	<h3>Ad-hoc Query:</h3>
-	<input type="text" class="ad-hoc" placeholder="Enter Query">
-	<input type="button" value="Clear">
-	<input type="button" value="Submit">
+	<input type="text" id="ad-hoc" placeholder="Enter Query">
+	<input type="button" value="Clear" onclick="cleary()">
+	<input type="button" value="Submit" onclick="submit()">
 
 	<br>
 	<br>
 	
 	<h3>Relations:</h3>
 	<ul class="relations-list">
-		<li>Animals</li>
-		<li>Attractions</li>
-		<li>Attractionhavehours</li>
-		<li>Exhibits</li>
-		<li>Exhibitshaveanimals</li>
-		<li>Open</li>
-		<li>Rides</li>
-		<li>Show</li>
-		<li>Showhasanimal</li>
-		<li>Zoo</li>
-		<li>Zoohasaddress</li>
-		<li>Zoohasanimals</li>
+		<li><a href="query.php?query=select * from animal&title=Animals"><div>Animal</div></a></li>
+		<li><a href="query.php?query=select * from attraction&title=Attractions"><div>Attraction</div></a></li>
+		<li><a href="query.php?query=select * from attractionhashours&title=Attractionhavehours"><div>Attractionhashours</div></a></li>
+		<li><a href="query.php?query=select * from exhibit&title=Exhibits"><div>Exhibit</div></a></li>
+		<li><a href="query.php?query=select * from exhibithasanimal&title=Exhibitshaveanimals"><div>Exhibitshaveanimal</div></a></li>
+		<li><a href="query.php?query=select * from open&title=Open"><div>Open</div></a></li>
+		<li><a href="query.php?query=select * from ride&title=Rides"><div>Ride</div></a></li>
+		<li><a href="query.php?query=select * from show&title=Show"><div>Show</div></a></li>
+		<li><a href="query.php?query=select * from showhasanimal&title=Showhasanimal"><div>Showhasanimal</div></a></li>
+		<li><a href="query.php?query=select * from zoo&title=Zoo"><div>Zoo</div></a></li>
+		<li><a href="query.php?query=select * from zoohasaddress&title=Zoohasaddress"><div>Zoohasaddress</div></a></li>
+		<li><a href="query.php?query=select * from zoohasanimal&title=Zoohasanimals"><div>Zoohasanimal</div></a></li>
 	</ul>
 	
-	<h3>Queries:</h3>
+	<h3>Homework 4 Queries:</h3>
 	<ul class="query-list">
-		<li>Query 1</li>
-		<li>Query 2</li>
-		<li>Query 3</li>
-		<li>Query 4</li>
-		<li>Query 5</li>
+		<li><a href="query.php?query=SELECT attractionhashours.AttractionName FROM attractionhashours WHERE attractionhashours.StartTime IN (SELECT open.StartTime FROM open)&title=CUSTOM"><div>Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens.</div></a></li>
+		<li><a href="query.php?query=SELECT COUNT(animal.AnimalName) FROM animal WHERE animal.AnimalName NOT IN (SELECT showhasanimal.AnimalName FROM showhasanimal)&title=CUSTOM"><div>Query 2: Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show.</div></a></li>
+		<li><a href="query.php?query=SELECT attractionhashours.ZooName, COUNT(attractionhashours.ZooName) totalAttractionCount FROM attractionhashours GROUP BY attractionhashours.ZooName&title=CUSTOM "><div>Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order. </div></a></li>
+		<li><a href="query.php?query=SELECT DISTINCT open.StartTime FROM open WHERE open.ZooName LIKE'%Diego%' "><div>Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at</div></a></li>
+		<li><a href="query.php?query=SELECT showhasanimal.AnimalName FROM showhasanimal WHERE showhasanimal.AnimalName IN (SELECT exhibithasanimal.AnimalName FROM exhibithasanimal)&title=CUSTOM"><div>Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit. </div></a></li>
 	</ul>
 	
 	<br>
 <div>
 
+
+<script>
+	adhoc = document.getElementById("ad-hoc");
+
+	function cleary() {
+		adhoc.value = "";
+	}
+
+	function submit() {
+		window.location.href = 'query.php?query=' + adhoc.value + "&title=CUSTOM QUERY";
+	}
+</script>
 
 </body>
 
