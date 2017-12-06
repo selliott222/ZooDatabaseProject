@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="UTF-8">
+	
+	<style>
+
+	* {
+		font-family: Helvetica;
+		margin: 0px;
+		padding: 0px;
+		color: #303030;
+	}
+	
+	body {
+		background-color: #f7f7f7;
+	}
+	
+	.zoo-header {
+		font-size: 24px;
+		font-weight: bold;
+		background-color: #6ac15d;
+		margin: 0px;
+		padding: 0px;
+		height: 100px;
+	}
+	
+	.group-header {
+		margin: 0px;
+		padding: 0px;
+		background-color: #efefef;
+	}
+	
+	.content-div {
+		margin: 0px;
+		padding: 20px;
+		height: 500px;
+	}
+
+	ul {
+		 list-style-type: none;
+		 margin-bottom: 20px;
+	}
+	
+	.relations-list li {
+		 border: 2px solid black;
+		 padding: 2px;
+		 margin: 2px;
+		 width: 200px;
+		 cursor: pointer;
+		 background-color: #f2f2f2;
+	}
+	
+	.query-list li {
+		 border: 2px solid black;
+		 padding: 2px;
+		 margin: 2px;
+		 width: 200px;
+		 cursor: pointer;
+	}
+	
+	input {
+		width:60px ;
+		height: 30px;
+	}
+	
+	.ad-hoc {
+		width:500px ;
+		height: 30px;
+	}
+	
+	
+	</style>
+	
+</head>
+
+<body>
+
+<header>
+	<div class="zoo-header">
+		<h1 style="color:white; padding:20px;">Zoo Database</h1>
+	</div>
+	
+	<div class="group-header">
+		<h3 style="padding:20px 20px 20px 20px;" >
+			Team Members: <br>
+			Michael Thiagasingh: michael.christler@gmail.com <br>
+			Shane Elliott: selliott222@live.com <br>
+			Zihang Ruan: ruanzihang1@gmail.com <br>
+			Haoming Dong: hmdongsf@gmail.com
+		</h3>
+		
+		<hr>
+		
+	</div>
+	
+</header>
+
+
+
+<div class="content-div">
+
+	<h3>Ad-hoc Query:</h3>
+	<input type="text" class="ad-hoc" placeholder="Enter Query">
+	<input type="button" value="Clear">
+	<input type="button" value="Submit">
+
+	<br>
+	<br>
+	
+	<h3>Relations:</h3>
+	<ul class="relations-list">
+		<li>Animals</li>
+		<li>Attractions</li>
+		<li>Attractionhavehours</li>
+		<li>Exhibits</li>
+		<li>Exhibitshaveanimals</li>
+		<li>Open</li>
+		<li>Rides</li>
+		<li>Show</li>
+		<li>Showhasanimal</li>
+		<li>Zoo</li>
+		<li>Zoohasaddress</li>
+		<li>Zoohasanimals</li>
+	</ul>
+	
+	<h3>Queries:</h3>
+	<ul class="query-list">
+		<li>Query 1</li>
+		<li>Query 2</li>
+		<li>Query 3</li>
+		<li>Query 4</li>
+		<li>Query 5</li>
+	</ul>
+	
+	<br>
+<div>
+
+
+</body>
+
+</html>
