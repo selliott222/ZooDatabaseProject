@@ -63,11 +63,11 @@
 	
 	<h3>Homework 4 Queries:</h3>
 	<ul class="query-list">
-		<li><a href="query.php?query=SELECT attractionhashours.AttractionName FROM attractionhashours WHERE attractionhashours.StartTime IN (SELECT open.StartTime FROM open)&title=CUSTOM"><div>Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens.</div></a></li>
-		<li><a href="query.php?query=SELECT COUNT(animal.AnimalName) FROM animal WHERE animal.AnimalName NOT IN (SELECT showhasanimal.AnimalName FROM showhasanimal)&title=CUSTOM"><div>Query 2: Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show.</div></a></li>
-		<li><a href="query.php?query=SELECT attractionhashours.ZooName, COUNT(attractionhashours.ZooName) totalAttractionCount FROM attractionhashours GROUP BY attractionhashours.ZooName&title=CUSTOM "><div>Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order. </div></a></li>
-		<li><a href="query.php?query=SELECT DISTINCT open.StartTime FROM open WHERE open.ZooName LIKE'%Diego%' "><div>Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at</div></a></li>
-		<li><a href="query.php?query=SELECT showhasanimal.AnimalName FROM showhasanimal WHERE showhasanimal.AnimalName IN (SELECT exhibithasanimal.AnimalName FROM exhibithasanimal)&title=CUSTOM"><div>Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit. </div></a></li>
+		<li><a href="query.php?query=SELECT attractionhashours.AttractionName FROM attractionhashours WHERE attractionhashours.StartTime IN (SELECT open.StartTime FROM open)&title=Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens"><div>Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens.</div></a></li>
+		<li><a href="query.php?query=SELECT COUNT(animal.AnimalName) FROM animal WHERE animal.AnimalName NOT IN (SELECT showhasanimal.AnimalName FROM showhasanimal)&title=Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show"><div>Query 2: Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show.</div></a></li>
+		<li><a href="query.php?query=SELECT attractionhashours.ZooName, COUNT(attractionhashours.ZooName) totalAttractionCount FROM attractionhashours GROUP BY attractionhashours.ZooName&title=Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order"><div>Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order. </div></a></li>
+		<li><a href="query.php?query=SELECT DISTINCT open.StartTime FROM open WHERE open.ZooName LIKE'%Diego%'&title=Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at"><div>Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at</div></a></li>
+		<li><a href="query.php?query=SELECT showhasanimal.AnimalName FROM showhasanimal WHERE showhasanimal.AnimalName IN (SELECT exhibithasanimal.AnimalName FROM exhibithasanimal)&title=Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit"><div>Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit. </div></a></li>
 	</ul>
 	
 	<br>

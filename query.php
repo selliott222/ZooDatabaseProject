@@ -9,7 +9,7 @@
 	$query_str = str_replace("%20", " ", $urlparams['query']);
 	
 	$query = $query_str;
-	mysqli_query($db, $query) or die('Error querying database.');
+	mysqli_query($db, $query) or die('Error/Invalid querying database.');
 
 	$pagecontents = file_get_contents("query.html");
 	
@@ -22,13 +22,20 @@
 
 	echo "<div class='query-content'>";
 	
-	echo '<h3>' . $urlparams['title'] . ': ' . $query_str . '<br> <br> </h3>';
+	echo '<h3>' . $urlparams['title'] . ':<br>' . $query_str . '<br> <br> </h3>';
+	
+	$q_type = 'select';
+
+	if (!(strpos($query, 'select') !== false)) {
+		echo 'Query Successful';
+		die;
+	}
 	
 	$counter = 0;
 	
 	while ($row = mysqli_fetch_array($result)) {
-		$test = array_keys($row);
-		foreach ($test as $value) {
+		$keys = array_keys($row);
+		foreach ($keys as $value) {
 			if (is_string($value))
 			echo $row[$value] . '<br>';
 		}
@@ -37,7 +44,7 @@
 		$counter++;
 	}
 	
-	echo "total: " . $counter;
+	echo "<h4>total: " . $counter . "</h4>";
 	
 	echo "</div>";
 
