@@ -23,10 +23,8 @@
 	echo "<div class='query-content'>";
 	
 	echo '<h3>' . $urlparams['title'] . ':<br>' . $query_str . '<br> <br> </h3>';
-	
-	$q_type = 'select';
 
-	if (!(strpos($query, 'select') !== false)) {
+	if (!(strpos(strtolower($query), 'select') !== false)) {
 		echo 'Query Successful';
 		die;
 	}
