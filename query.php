@@ -1,6 +1,6 @@
 
 <?php
-	$db = mysqli_connect('localhost','root','','zoos')
+	$db = mysqli_connect('localhost','root','','zoofriends')
 	or die('Error connecting to MySQL server.');
 	
 	$url = $_SERVER['REQUEST_URI'];
@@ -34,8 +34,25 @@
 	while ($row = mysqli_fetch_array($result)) {
 		$keys = array_keys($row);
 		foreach ($keys as $value) {
-			if (is_string($value))
-			echo $row[$value] . '<br>';
+			if (is_string($value)){
+			
+			if ($value == "Description"){
+					if (strpos($row[$value], '.jpg') !== false) {
+						
+						echo '<div style="min-height: 100px;" > <img class="pic" style="width:140px; margin-right:10px; float:left; max-height: 80px;" src="';
+						$pos = strpos($row[$value], '.jpg') + 4;
+						echo substr($row[$value], 0, $pos) . '"/>';
+						echo substr($row[$value], $pos) . '</div>';
+						
+					}
+					else {
+						echo $row[$value] . '<br>';
+					}
+				}
+			else {
+					echo $value . ': ' . $row[$value] . '<br>';
+				}
+			}
 		}
 		
 		echo '<br>';

@@ -15,7 +15,7 @@
 
 <header>
 	<div class="zoo-header">
-		<h1>Zoo Database</h1>
+		<img src="zoofriends.png" style="height:70px; margin:14px"/>
 	</div>
 	
 	<div class="group-header">
@@ -36,39 +36,71 @@
 
 
 <div class="content-div">
-
-	<h3>Ad-hoc Query:</h3>
-	<input type="text" id="ad-hoc" placeholder="Enter Query">
-	<input type="button" value="Clear" onclick="cleary()">
-	<input type="button" value="Submit" onclick="submit()">
-
-	<br>
-	<br>
 	
-	<h3>Relations:</h3>
-	<ul class="relations-list">
-		<li><a href="query.php?query=select * from animal&title=Animals"><div>Animal</div></a></li>
-		<li><a href="query.php?query=select * from attraction&title=Attractions"><div>Attraction</div></a></li>
-		<li><a href="query.php?query=select * from attractionhashours&title=Attractionhavehours"><div>Attractionhashours</div></a></li>
-		<li><a href="query.php?query=select * from exhibit&title=Exhibits"><div>Exhibit</div></a></li>
-		<li><a href="query.php?query=select * from exhibithasanimal&title=Exhibitshaveanimals"><div>Exhibitshaveanimal</div></a></li>
-		<li><a href="query.php?query=select * from open&title=Open"><div>Open</div></a></li>
-		<li><a href="query.php?query=select * from ride&title=Rides"><div>Ride</div></a></li>
-		<li><a href="query.php?query=select * from show&title=Show"><div>Show</div></a></li>
-		<li><a href="query.php?query=select * from showhasanimal&title=Showhasanimal"><div>Showhasanimal</div></a></li>
-		<li><a href="query.php?query=select * from zoo&title=Zoo"><div>Zoo</div></a></li>
-		<li><a href="query.php?query=select * from zoohasaddress&title=Zoohasaddress"><div>Zoohasaddress</div></a></li>
-		<li><a href="query.php?query=select * from zoohasanimal&title=Zoohasanimals"><div>Zoohasanimal</div></a></li>
-	</ul>
+	<div class="left-col"> 
+		<h3>Relations:</h3>
+		<ul class="relations-list">
+			<li><a href="query.php?query=select * from address&title=Address"><div>Address</div></a></li>
+			<li><a href="query.php?query=select * from animal&title=Animals"><div>Animal</div></a></li>
+			<li><a href="query.php?query=select * from attraction&title=Attractions"><div>Attraction</div></a></li>
+			<li><a href="query.php?query=select * from attractionhashours&title=Attractionhavehours"><div>Attractionhashours</div></a></li>
+			<li><a href="query.php?query=select * from exhibit&title=Exhibits"><div>Exhibit</div></a></li>
+			<li><a href="query.php?query=select * from exhibithasanimal&title=Exhibitshaveanimals"><div>Exhibitshaveanimal</div></a></li>
+			<li><a href="query.php?query=select * from hours&title=Hours"><div>Hours</div></a></li>
+			<li><a href="query.php?query=select * from open&title=Open"><div>Open</div></a></li>
+			<li><a href="query.php?query=select * from ride&title=Rides"><div>Ride</div></a></li>
+			<li><a href="query.php?query=select * from shows&title=Shows"><div>Shows</div></a></li>
+			<li><a href="query.php?query=select * from showhasanimal&title=Showhasanimal"><div>Showhasanimal</div></a></li>
+			<li><a href="query.php?query=select * from zoo&title=Zoo"><div>Zoo</div></a></li>
+			<li><a href="query.php?query=select * from zoohasaddress&title=Zoohasaddress"><div>Zoohasaddress</div></a></li>
+			<li><a href="query.php?query=select * from zoohasanimal&title=Zoohasanimals"><div>Zoohasanimal</div></a></li>
+		</ul>
+		
+		<h3>Sample Queries:</h3>
+		<ul class="query-list">
+			<li><a href="query.php?query=SELECT attractionhashours.AttractionName FROM attractionhashours WHERE attractionhashours.StartTime IN (SELECT open.StartTime FROM open)&title=Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens"><div>Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens.</div></a></li>
+			<li><a href="query.php?query=SELECT COUNT(animal.AnimalName) FROM animal WHERE animal.AnimalName NOT IN (SELECT showhasanimal.AnimalName FROM showhasanimal)&title=Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show"><div>Query 2: Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show.</div></a></li>
+			<li><a href="query.php?query=SELECT attractionhashours.ZooName, COUNT(attractionhashours.ZooName) totalAttractionCount FROM attractionhashours GROUP BY attractionhashours.ZooName&title=Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order"><div>Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order. </div></a></li>
+			<li><a href="query.php?query=SELECT DISTINCT open.StartTime FROM open WHERE open.ZooName LIKE'%Diego%'&title=Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at"><div>Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at</div></a></li>
+			<li><a href="query.php?query=SELECT showhasanimal.AnimalName FROM showhasanimal WHERE showhasanimal.AnimalName IN (SELECT exhibithasanimal.AnimalName FROM exhibithasanimal)&title=Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit"><div>Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit. </div></a></li>
+		</ul>
+	</div>
 	
-	<h3>Homework 4 Queries:</h3>
-	<ul class="query-list">
-		<li><a href="query.php?query=SELECT attractionhashours.AttractionName FROM attractionhashours WHERE attractionhashours.StartTime IN (SELECT open.StartTime FROM open)&title=Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens"><div>Query 1: Find​ ​attractions​ ​that​ ​start​ ​at​ ​the​ ​same​ ​time​ ​that​ ​a​ ​zoo ​opens.</div></a></li>
-		<li><a href="query.php?query=SELECT COUNT(animal.AnimalName) FROM animal WHERE animal.AnimalName NOT IN (SELECT showhasanimal.AnimalName FROM showhasanimal)&title=Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show"><div>Query 2: Count​ ​the​ ​number​ ​of​ ​animals​ ​that​ ​are​ ​not​ ​in​ ​a​ ​show.</div></a></li>
-		<li><a href="query.php?query=SELECT attractionhashours.ZooName, COUNT(attractionhashours.ZooName) totalAttractionCount FROM attractionhashours GROUP BY attractionhashours.ZooName&title=Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order"><div>Query 3:  ​List​ ​the​ ​zoos​ ​and​ ​the​ ​number​ ​of​ ​attractions​ ​they  have,​ ​grouped​ ​in​ ​alphabetical​ ​order. </div></a></li>
-		<li><a href="query.php?query=SELECT DISTINCT open.StartTime FROM open WHERE open.ZooName LIKE'%Diego%'&title=Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at"><div>Query 4: Show​ ​times​ ​that​ ​the​ ​San​ ​Diego​ ​Zoo​ ​is​ ​open​ ​at</div></a></li>
-		<li><a href="query.php?query=SELECT showhasanimal.AnimalName FROM showhasanimal WHERE showhasanimal.AnimalName IN (SELECT exhibithasanimal.AnimalName FROM exhibithasanimal)&title=Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit"><div>Query 5: List​ ​which​ ​animals​ ​are​ ​in​ ​a​ ​show​ ​and​ ​exhibit. </div></a></li>
-	</ul>
+	<div class="center-col"> 
+		
+		<div class="q-box">
+			<h3>Ad-hoc Query:</h3>
+			<input type="text" id="ad-hoc" placeholder="Enter Query">
+			<input type="button" value="Clear" onclick="cleary()">
+			<input type="button" value="Submit" onclick="submit()">
+		</div>
+		
+		<div class="home-text" style="width:720px; margin:40px 40px 0px 140px">
+			<h3>Diagram:</h3>
+			<img src="diagram.png" style="width:720px;"/>
+			<h4>
+				<br/>
+				Our Domain: <br/><br/>
+				The domain of a zoo consists of a variety of different activities. There are of course the principal animal exhibits, as well as attractions, shops, restaurants, cafes, theaters, rides, events, themed areas, habitats, and the animals themselves. Aside from the elements in a zoo, there are various zoos within the state of California: some of these include the San Francisco Zoo, Safari West, and SeaWorld San Diego. 
+				<br/><br/>
+				The exhibits and some attractions contain animals. Shops, cafes, and restaurants sell a variety of foods and, for the former, purchasable products. Theaters, rides, and events incorporate specific performers and even certain mechanical devices. All of the aforementioned require zoo workers. 
+
+				</br></br>
+				Intended User Group:
+				
+				<br/></br>
+				The users expected to utilize the application will mostly likely be zoo visitors who have a considerable need to understand all the disparate elements in a zoological environment. The system will help the visitors keep track of times of different events occurring in the zoo, the locations of the animal denizens, and the general structural layout of the zoo, which may be altered over time. 
+				</br></br>
+				Value-Added Facilities
+				</br></br>
+
+				While the system will not explicitly model certain amenities, it would likely be prudent to consider them. Chief among these is the animals’ health monitoring. The application would take into account the time intervals for an animal’s medication, eating periods, or birthing. This mainly serves the animals inhabiting the zoo. The system may also include more information on the animals: their age, sex, parentage, place of birth, circumstance of death, etc. These biological details, when stored in a database, help manage genetic and demographic programs for animal collections. Furthermore, the system could also possibly monitor the population clusters of the visitor-influx. Identifying which areas of the zoo attract more, or less attraction, may influence decisions made towards the attractions and exhibits as well as any of the park’s establishments. 
+				</br></br>
+				
+			</h4>
+		</div>
+		
+	</div>
 	
 	<br>
 <div>
@@ -82,7 +114,12 @@
 	}
 
 	function submit() {
-		window.location.href = 'query.php?query=' + adhoc.value + "&title=CUSTOM QUERY";
+		if (adhoc.value != ""){
+			window.location.href = 'query.php?query=' + adhoc.value + "&title=CUSTOM QUERY";
+		}
+		else {
+			alert("Enter query!");
+		}
 	}
 </script>
 

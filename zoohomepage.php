@@ -1,6 +1,6 @@
 
 <?php
-	$db = mysqli_connect('localhost','root','','zoos')
+	$db = mysqli_connect('localhost','root','','zoofriends')
 	or die('Error connecting to MySQL server.');
 	 
 	$query = "SELECT * FROM animal";

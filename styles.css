@@ -78,3 +78,27 @@
 	.query-content {
 		padding: 30px;
 	}
+	
+	.pic {
+		width: 100px;
+	}
+	
+	.left-col {
+		float:left;
+		width:340px;
+		border: 2px solid black;
+	}
+	
+	.center-col {
+		float:left;
+		width: 70%;
+		border: 2px solid black;
+		margin-left:20px;
+		margin-bottom:20px;
+		padding-bottom:20px;
+	}
+	
+	.q-box {
+		margin-left:16%;
+		margin-top:20px;
+	}
